@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #FFE5EC 0%, #FFF0F5 50%, #E8F5E9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.content {
+    width: 100%;
+    max-width: 600px;
+}
+
+.card {
+    background-color: #FFFBF5;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in;
+    border: 3px solid #FFE5EC;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* INTRO SCREEN STYLES */
+.intro-emoji {
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+.description {
+    font-size: 18px;
+    color: #5D6D7E;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.start-button {
+    background-color: #FFB6C1;
+    color: #2C3E50;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    padding: 16px 48px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.4);
+}
+
+.start-button:hover {
+    transform: scale(1.05);
+}
+
+/* QUIZ SCREEN STYLES */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #98D8C8;
+    transition: width 0.5s ease;
+    border-radius: 10px;
+    width: 0%;
+}
+
+.question-number {
+    font-size: 14px;
+    color: #98D8C8;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.question {
+    font-size: 26px;
+    font-weight: 600;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 32px;
+    margin-top: 0;
+}
+
+.answers-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+}
+
+.answer-button {
+    background-color: #FFFFFF;
+    color: #2C3E50;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    padding: 20px 24px;
+    border: 2px solid #FFE5EC;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.answer-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* RESULTS SCREEN STYLES */
+.result-emoji {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.result-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.result-type {
+    font-size: 40px;
+    font-weight: 700;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: 0;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    border: 3px dashed rgba(44, 62, 80, 0.2);
+}
+
+.image-placeholder-text {
+    font-size: 24px;
+    color: #2C3E50;
+    font-weight: 600;
+}
+
+.result-description {
+    font-size: 18px;
+    color: #2C3E50;
+    text-align: center;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.play-again-button {
+    background-color: #2C3E50;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+}
+
+.play-again-button:hover {
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 600px) {
+    .card {
+        padding: 24px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .question {
+        font-size: 22px;
+    }
+
+    .result-type {
+        font-size: 32px;
+    }
+}
