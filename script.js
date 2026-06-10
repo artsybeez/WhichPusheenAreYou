@@ -329,7 +329,7 @@ let bgmAudio = null;
 // ---- BGM ----
 function playBgm() {
   if (bgmAudio) return;
-  bgmAudio = new Audio("audio/bg-music.mp3");
+  bgmAudio = new Audio("audio/music.mp3");
   bgmAudio.loop = true;
   bgmAudio.volume = 1.0;
   bgmAudio.play().catch(() => {});
