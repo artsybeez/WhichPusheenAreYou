@@ -1,207 +1,137 @@
-To help you create a personalized "Which Pusheen Are You?" quiz, here is a structured layout of 12 cute and simple questions. Each question features 11 specific options that correspond directly to one of the 11 characters you requested.
+To help you create a personalized "Which Pusheen Are You?" quiz, here is a structured layout of 12 cute and simple questions. Each question features 6 specific options that correspond directly to one of the 6 characters.
 
 At the end of the quiz, the character with the most matches will reveal who the taker is!
 
-### **The 11 Characters & Their Personality Vibes:**
+### The 6 Characters & Their Personality Vibes:
 
 1. **Pusheen:** Lazy, loves snacks, cozy, sleeping.
 2. **Stormy:** Fluffy, energetic, adventurous, wants to be just like Pusheen.
 3. **Pip:** Little brother, mischievous, curious, wants to be a fierce wolf.
-4. **Sunflower:** Cheerful, bright, loves nature, always smiling.
-5. **Biscuit:** Soft, helpful, sweet, loves baking and treats.
+4. **Cheek:** The hamster, loves cooking, always has food in their cheeks.
+5. **Bo:** The parakeet, dreams of being a big blue bird, confident.
 6. **Sloth:** Quiet, very slow, calm, loves taking long naps.
-7. **Cheek:** The hamster, loves cooking, always has food in their cheeks.
-8. **Bo:** The parakeet, dreams of being a big blue bird, confident.
-9. **Tommy:** The ferret, playful, sneaky, loves exploring narrow spaces.
-10. **Pusheenicorn:** Magical, whimsical, loves rainbows and stardust.
-11. **Pup:** Playful, loyal, loves chasing balls, full of joy.
 
 ---
 
-### **The 12 Quiz Questions**
+### The 12 Quiz Questions
 
-#### **1. Pick your absolute favorite snack or treat!**
+#### 1. Pick your absolute favorite snack or treat!
 
 * **A)** A whole box of chocolate chip cookies *(Pusheen)*
 * **B)** A giant, colorful cupcake with extra frosting *(Stormy)*
 * **C)** A secret stash of hidden candies *(Pip)*
-* **D)** Honey-sweetened herbal tea and edible flowers *(Sunflower)*
-* **E)** Freshly baked, warm butter biscuits *(Biscuit)*
+* **D)** Anything I can stuff into my cheeks right now *(Cheek)*
+* **E)** Tiny, perfectly round crackers *(Bo)*
 * **F)** A single snack that I will take an hour to eat *(Sloth)*
-* **G)** Anything I can stuff into my cheeks right now *(Cheek)*
-* **H)** Tiny, perfectly round crackers *(Bo)*
-* **I)** Crunchy little treats I found while exploring *(Tommy)*
-* **J)** Sparkly star-shaped candies that taste like magic *(Pusheenicorn)*
-* **K)** A yummy bone-shaped biscuit or treats from a pouch *(Pup)*
 
-#### **2. Choose your ideal weekend activity:**
+#### 2. Choose your ideal weekend activity:
 
 * **A)** Taking a 5-hour nap on a sunny spot on the rug *(Pusheen)*
 * **B)** Bouncing around the room and playing dress-up *(Stormy)*
 * **C)** Planning a tiny, harmless prank or building a fort *(Pip)*
-* **D)** Sitting in a garden watching bees and butterflies *(Sunflower)*
-* **E)** Helping a friend bake something delicious in the kitchen *(Biscuit)*
+* **D)** Hosting a small dinner party with lots of food *(Cheek)*
+* **E)** Practicing my poses in front of a mirror *(Bo)*
 * **F)** Moving very... slowly... to a new comfortable sitting spot *(Sloth)*
-* **G)** Hosting a small dinner party with lots of food *(Cheek)*
-* **H)** Practicing my poses in front of a mirror *(Bo)*
-* **I)** Checking behind the couch and under the bed for mysteries *(Tommy)*
-* **J)** Flying through clouds and chasing shooting stars *(Pusheenicorn)*
-* **K)** Going out to the park to run in circles and play fetch *(Pup)*
 
-#### **3. What is your aesthetic or vibe?**
+#### 3. What is your aesthetic or vibe?
 
 * **A)** Comfy, cozy, and perfectly round *(Pusheen)*
 * **B)** Extremely fluffy, curly, and energetic *(Stormy)*
 * **C)** Small, fuzzy, and slightly chaotic *(Pip)*
-* **D)** Bright, sunny, yellow, and cheerful *(Sunflower)*
-* **E)** Warm, sweet, and comforting like a bakery *(Biscuit)*
+* **D)** Chubby-cheeked, cute, and food-loving *(Cheek)*
+* **E)** Tiny, elegant, and dreaming big *(Bo)*
 * **F)** Chill, relaxed, and completely unbothered *(Sloth)*
-* **G)** Chubby-cheeked, cute, and food-loving *(Cheek)*
-* **H)** Tiny, elegant, and dreaming big *(Bo)*
-* **I)** Sleek, fast, and endlessly curious *(Tommy)*
-* **J)** Pastel, sparkly, and magical *(Pusheenicorn)*
-* **K)** Happy, loyal, and full of tail-wags *(Pup)*
 
-#### **4. If you found a cardboard box, what would you do with it?**
+#### 4. If you found a cardboard box, what would you do with it?
 
 * **A)** Sit in it immediately. If I fits, I sits *(Pusheen)*
 * **B)** Jump in and out of it repeatedly while making happy noises *(Stormy)*
 * **C)** Hide inside it and surprise anyone who walks past *(Pip)*
-* **D)** Paint flowers on the outside to make it look pretty *(Sunflower)*
-* **E)** Store my baking supplies and cookbooks inside it *(Biscuit)*
+* **D)** Fill it up with snacks for later *(Cheek)*
+* **E)** Stand on top of it so I look tall and majestic *(Bo)*
 * **F)** Crawl inside very slowly and use it as a dark nap cave *(Sloth)*
-* **G)** Fill it up with snacks for later *(Cheek)*
-* **H)** Stand on top of it so I look tall and majestic *(Bo)*
-* **I)** Dig a tunnel underneath it or find a way through the side *(Tommy)*
-* **J)** Turn it into a magical castle with a rainbow flag *(Pusheenicorn)*
-* **K)** Chew on the corners excitedly and then wait for someone to throw a ball in it *(Pup)*
 
-#### **5. Pick a magical superpower you’d love to have:**
+#### 5. Pick a magical superpower you'd love to have:
 
 * **A)** The ability to summon snacks just by thinking about them *(Pusheen)*
 * **B)** Infinite energy so I never have to stop playing *(Stormy)*
 * **C)** Shape-shifting into a giant, fierce wolf *(Pip)*
-* **D)** Making plants and flowers bloom instantly with a touch *(Sunflower)*
-* **E)** A magical oven that bakes treats instantly with no mess *(Biscuit)*
+* **D)** A pocket dimension where I can store endless food *(Cheek)*
+* **E)** The ability to grow into a giant, legendary creature whenever I want *(Bo)*
 * **F)** The power to stop time so my naps can last forever *(Sloth)*
-* **G)** A pocket dimension where I can store endless food *(Cheek)*
-* **H)** The ability to grow into a giant, legendary creature whenever I want *(Bo)*
-* **I)** Invisibility to make sneaking around easier *(Tommy)*
-* **J)** Creating rainbows and flying through space *(Pusheenicorn)*
-* **K)** Understanding what all animals are saying so I can make a million friends *(Pup)*
 
-#### **6. How do you react when your alarm goes off in the morning?**
+#### 6. How do you react when your alarm goes off in the morning?
 
 * **A)** Press snooze five times and pull the blanket over my head *(Pusheen)*
 * **B)** Wake up instantly and do a little morning dance *(Stormy)*
 * **C)** Roll out of bed and immediately start looking for adventure *(Pip)*
-* **D)** Smile at the morning sun and stretch out happily *(Sunflower)*
-* **E)** Get up early to make breakfast for everyone else *(Biscuit)*
+* **D)** My eyes open and I immediately reach for a bedside snack *(Cheek)*
+* **E)** Sit up perfectly straight and prepare to conquer the day *(Bo)*
 * **F)** ...What alarm? I slept right through it *(Sloth)*
-* **G)** My eyes open and I immediately reach for a bedside snack *(Cheek)*
-* **H)** Sit up perfectly straight and prepare to conquer the day *(Bo)*
-* **I)** Slip out of bed quietly to see what everyone else is doing *(Tommy)*
-* **J)** Float out of bed surrounded by a magical morning glow *(Pusheenicorn)*
-* **K)** Jump up excitedly, wag my tail, and run to greet my favorite person *(Pup)*
 
-#### **7. What’s your favorite type of weather?**
+#### 7. What's your favorite type of weather?
 
 * **A)** Rain outside so I have a perfect excuse to stay in bed *(Pusheen)*
 * **B)** A gentle, cool breeze that fluffs up my hair *(Stormy)*
 * **C)** A cloudy, mysterious day perfect for exploring outside *(Pip)*
-* **D)** Bright, warm, unobstructed sunshine *(Sunflower)*
-* **E)** A cozy, snowy day where the kitchen smells like warm cookies *(Biscuit)*
+* **D)** A mild, pleasant day ideal for a picnic in the park *(Cheek)*
+* **E)** A clear blue sky where you can see for miles *(Bo)*
 * **F)** A warm, humid day perfect for lounging on a hammock *(Sloth)*
-* **G)** A mild, pleasant day ideal for a picnic in the park *(Cheek)*
-* **H)** A clear blue sky where you can see for miles *(Bo)*
-* **I)** A misty morning full of hidden paths to discover *(Tommy)*
-* **J)** A magical night under a starry sky with a bright full moon *(Pusheenicorn)*
-* **K)** Any weather at all, as long as I get to play outside *(Pup)*
 
-#### **8. Choose an animal you feel a special connection to (besides a cat!):**
+#### 8. Choose an animal you feel a special connection to (besides a cat!):
 
 * **A)** A happy, round panda eating bamboo *(Pusheen)*
 * **B)** A bouncy, fluffy bunny rabbit *(Stormy)*
 * **C)** A wild, howling wolf or a tiny fox *(Pip)*
-* **D)** A busy, cheerful little bumblebee *(Sunflower)*
-* **E)** A sweet, helpful koala bear *(Biscuit)*
+* **D)** A cute little hamster saving snacks for later *(Cheek)*
+* **E)** A proud, beautiful blue bird *(Bo)*
 * **F)** A slow-moving, relaxed tree sloth *(Sloth)*
-* **G)** A cute little hamster saving snacks for later *(Cheek)*
-* **H)** A proud, beautiful blue bird *(Bo)*
-* **I)** A quick, clever little ferret or weasel *(Tommy)*
-* **J)** A majestic, mythical pegasus *(Pusheenicorn)*
-* **K)** A loyal, happy puppy dog *(Pup)*
 
-#### **9. What kind of gift do you like to give your friends?**
+#### 9. What kind of gift do you like to give your friends?
 
 * **A)** A share of my favorite snack (but only a small bite!) *(Pusheen)*
 * **B)** A handmade drawing with lots of glitter *(Stormy)*
 * **C)** A cool rock or a shiny button I found *(Pip)*
-* **D)** A beautiful bouquet of fresh flowers *(Sunflower)*
-* **E)** A box of homemade cupcakes tied with a ribbon *(Biscuit)*
+* **D)** A delicious recipe book or cooking gadget *(Cheek)*
+* **E)** An inspiring speech or a fancy accessory *(Bo)*
 * **F)** A cozy, soft blanket for napping *(Sloth)*
-* **G)** A delicious recipe book or cooking gadget *(Cheek)*
-* **H)** An inspiring speech or a fancy accessory *(Bo)*
-* **I)** A puzzle or a mystery game we can solve together *(Tommy)*
-* **J)** A sparkly crystal that brings good luck *(Pusheenicorn)*
-* **K)** A big, warm hug and my undivided attention *(Pup)*
 
-#### **10. Where is your absolute favorite spot in the house?**
+#### 10. Where is your absolute favorite spot in the house?
 
 * **A)** Directly on top of the laptop keyboard while someone is working *(Pusheen)*
 * **B)** In the middle of the living room floor surrounded by toys *(Stormy)*
 * **C)** Tucked away in a dark corner or a blanket fort *(Pip)*
-* **D)** Right by the big window where the sun shines brightest *(Sunflower)*
-* **E)** In the kitchen near the warm oven *(Biscuit)*
+* **D)** Near the pantry or the dining table *(Cheek)*
+* **E)** Perched high up on the back of a chair to overlook the room *(Bo)*
 * **F)** Nestled deep into the softest, fluffiest couch cushions *(Sloth)*
-* **G)** Near the pantry or the dining table *(Cheek)*
-* **H)** Perched high up on the back of a chair to overlook the room *(Bo)*
-* **I)** Underneath the furniture exploring the dusty corners *(Tommy)*
-* **J)** On a floating shelf closer to the stars and sky *(Pusheenicorn)*
-* **K)** Right by the front door, waiting happily for my friends to come home *(Pup)*
 
-#### **11. What makes you the happiest?**
+#### 11. What makes you the happiest?
 
 * **A)** Eating a delicious meal and immediately falling asleep *(Pusheen)*
 * **B)** Making people laugh and learning new things *(Stormy)*
 * **C)** Growing bigger and feeling strong and independent *(Pip)*
-* **D)** Spreading positivity and seeing everyone smile *(Sunflower)*
-* **E)** Knowing that everyone is well-fed and happy *(Biscuit)*
+* **D)** Trying out a brand new recipe that tastes amazing *(Cheek)*
+* **E)** Achieving a big goal and showing off my hard work *(Bo)*
 * **F)** Absolute peace, quiet, and slow moments *(Sloth)*
-* **G)** Trying out a brand new recipe that tastes amazing *(Cheek)*
-* **H)** Achieving a big goal and showing off my hard work *(Bo)*
-* **I)** Finding a hidden secret or solving a little puzzle *(Tommy)*
-* **J)** Anything that involves magic, sparkles, and daydreaming *(Pusheenicorn)*
-* **K)** Running around and spending time with my favorite person *(Pup)*
 
-#### **12. Finally, pick a cute sound effect that describes you best:**
+#### 12. Finally, pick a cute sound effect that describes you best:
 
 * **A)** *Munch munch / Snoreee* *(Pusheen)*
 * **B)** *Yay! / Boing!* *(Stormy)*
 * **C)** *Awoo! / Rawr!* *(Pip)*
-* **D)** *Giggle / Chirp!* *(Sunflower)*
-* **E)** *Tada! / Ding! (Oven sound)* *(Biscuit)*
+* **D)** *Nom nom / Squeak!* *(Cheek)*
+* **E)** *Tweet! / Ta-da!* *(Bo)*
 * **F)** *Yawnnnn / Zzz...* *(Sloth)*
-* **G)** *Nom nom / Squeak!* *(Cheek)*
-* **H)** *Tweet! / Ta-da!* *(Bo)*
-* **I)** *Scritch-scratch / Patter-patter* *(Tommy)*
-* **J)** *Sparkle / Whoosh!* *(Pusheenicorn)*
-* **K)** *Pant-pant / Woof!* *(Pup)*
 
 ---
 
-### **How to Score:**
+### How to Score:
 
 Have the person taking the quiz tally up which character letter they picked the most.
 
 * Mostly **A** = You are **Pusheen**!
 * Mostly **B** = You are **Stormy**!
 * Mostly **C** = You are **Pip**!
-* Mostly **D** = You are **Sunflower**!
-* Mostly **E** = You are **Biscuit**!
+* Mostly **D** = You are **Cheek**!
+* Mostly **E** = You are **Bo**!
 * Mostly **F** = You are **Sloth**!
-* Mostly **G** = You are **Cheek**!
-* Mostly **H** = You are **Bo**!
-* Mostly **I** = You are **Tommy**!
-* Mostly **J** = You are **Pusheenicorn**!
-* Mostly **K** = You are **Pup**!

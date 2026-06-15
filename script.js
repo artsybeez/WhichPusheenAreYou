@@ -5,14 +5,9 @@ const QUESTIONS = [
       "A whole box of chocolate chip cookies",
       "A giant colorful cupcake with extra frosting",
       "A secret stash of hidden candies",
-      "Honey-sweetened herbal tea and edible flowers",
-      "Freshly baked warm butter biscuits",
-      "A single snack I take an hour to eat",
       "Anything I can stuff into my cheeks right now",
       "Tiny perfectly round crackers",
-      "Crunchy treats I found while exploring",
-      "Sparkly star-shaped candies that taste like magic",
-      "A yummy bone-shaped biscuit from a pouch"
+      "A single snack I take an hour to eat"
     ]
   },
   {
@@ -21,14 +16,9 @@ const QUESTIONS = [
       "Taking a 5-hour nap on a sunny rug spot",
       "Bouncing around and playing dress-up",
       "Planning a harmless prank or building a fort",
-      "Sitting in a garden watching butterflies",
-      "Helping bake something delicious in the kitchen",
-      "Moving very slowly to a new comfy spot",
       "Hosting a dinner party with lots of food",
       "Practicing poses in front of a mirror",
-      "Checking behind furniture for mysteries",
-      "Flying through clouds chasing shooting stars",
-      "Going to the park to run and play fetch"
+      "Moving very slowly to a new comfy spot"
     ]
   },
   {
@@ -37,14 +27,9 @@ const QUESTIONS = [
       "Comfy cozy and perfectly round",
       "Fluffy curly and full of energy",
       "Small fuzzy and slightly chaotic",
-      "Bright sunny yellow and cheerful",
-      "Warm sweet and comforting like a bakery",
-      "Chill relaxed and completely unbothered",
       "Chubby-cheeked cute and food-loving",
       "Tiny elegant and dreaming big",
-      "Sleek fast and endlessly curious",
-      "Pastel sparkly and magical",
-      "Happy loyal and full of tail-wags"
+      "Chill relaxed and completely unbothered"
     ]
   },
   {
@@ -53,14 +38,9 @@ const QUESTIONS = [
       "Sit in it immediately. If I fits I sits",
       "Jump in and out making happy noises",
       "Hide inside and surprise passersby",
-      "Paint flowers on it to make it pretty",
-      "Store my baking supplies inside",
-      "Crawl in slowly for a dark nap cave",
       "Fill it up with snacks for later",
       "Stand on top to look tall and majestic",
-      "Dig a tunnel underneath or through it",
-      "Turn it into a magical rainbow castle",
-      "Chew the corners and wait for playtime"
+      "Crawl in slowly for a dark nap cave"
     ]
   },
   {
@@ -69,14 +49,9 @@ const QUESTIONS = [
       "Summon snacks just by thinking about them",
       "Infinite energy to never stop playing",
       "Shape-shift into a giant fierce wolf",
-      "Make plants bloom instantly with a touch",
-      "A magical oven that bakes with no mess",
-      "Stop time so my naps last forever",
       "A pocket dimension to store endless food",
       "Grow into a giant legendary creature",
-      "Invisibility for sneaking around",
-      "Create rainbows and fly through space",
-      "Talk to animals and make endless friends"
+      "Stop time so my naps last forever"
     ]
   },
   {
@@ -85,14 +60,9 @@ const QUESTIONS = [
       "Snooze five times and hide under blankets",
       "Wake up instantly and do a morning dance",
       "Roll out and start looking for adventure",
-      "Smile at the sun and stretch happily",
-      "Get up early to make breakfast for everyone",
-      "What alarm? I slept right through it",
       "Eyes open reach straight for a bedside snack",
       "Sit up perfectly straight ready to conquer",
-      "Slip out quietly to see what others are doing",
-      "Float up surrounded by magical morning glow",
-      "Jump up wag my tail and greet my person"
+      "What alarm? I slept right through it"
     ]
   },
   {
@@ -101,14 +71,9 @@ const QUESTIONS = [
       "Rain outside — perfect excuse to stay in bed",
       "A gentle cool breeze that fluffs my hair",
       "A cloudy mysterious day for exploring",
-      "Bright warm unobstructed sunshine",
-      "Cozy snowy day with warm cookie smells",
-      "Warm humid day for lounging on a hammock",
       "Mild pleasant day for a picnic in the park",
       "A clear blue sky you can see for miles",
-      "A misty morning full of hidden paths",
-      "A magical night under a starry full moon",
-      "Any weather as long as I can play outside"
+      "Warm humid day for lounging on a hammock"
     ]
   },
   {
@@ -117,14 +82,9 @@ const QUESTIONS = [
       "A happy round panda eating bamboo",
       "A bouncy fluffy bunny rabbit",
       "A wild howling wolf or tiny fox",
-      "A busy cheerful little bumblebee",
-      "A sweet helpful koala bear",
-      "A slow-moving relaxed tree sloth",
       "A cute hamster saving snacks for later",
       "A proud beautiful blue bird",
-      "A quick clever ferret or weasel",
-      "A majestic mythical pegasus",
-      "A loyal happy puppy dog"
+      "A slow-moving relaxed tree sloth"
     ]
   },
   {
@@ -133,14 +93,9 @@ const QUESTIONS = [
       "A share of my favorite snack (just a bite)",
       "A handmade drawing with lots of glitter",
       "A cool rock or shiny button I found",
-      "A beautiful bouquet of fresh flowers",
-      "A box of homemade cupcakes with a ribbon",
-      "A cozy soft blanket for napping",
       "A recipe book or cool cooking gadget",
       "An inspiring speech or fancy accessory",
-      "A puzzle or mystery game to solve together",
-      "A sparkly crystal that brings good luck",
-      "A big warm hug and my full attention"
+      "A cozy soft blanket for napping"
     ]
   },
   {
@@ -149,14 +104,9 @@ const QUESTIONS = [
       "On top of the laptop while someone works",
       "Middle of the floor surrounded by toys",
       "Tucked in a dark corner or blanket fort",
-      "By the big window where the sun shines",
-      "In the kitchen near the warm oven",
-      "Deep in the softest fluffiest couch cushions",
       "Near the pantry or dining table",
       "High on a chair back to overlook the room",
-      "Under furniture exploring dusty corners",
-      "On a shelf closer to the stars",
-      "By the front door waiting for friends"
+      "Deep in the softest fluffiest couch cushions"
     ]
   },
   {
@@ -165,14 +115,9 @@ const QUESTIONS = [
       "Eating a delicious meal then falling asleep",
       "Making people laugh and learning new things",
       "Growing bigger feeling strong and independent",
-      "Spreading positivity and seeing smiles",
-      "Knowing everyone is well-fed and happy",
-      "Absolute peace quiet and slow moments",
       "Trying a new recipe that tastes amazing",
       "Achieving a goal and showing my hard work",
-      "Finding a hidden secret or solving a puzzle",
-      "Anything with magic sparkles and daydreaming",
-      "Running around with my favorite person"
+      "Absolute peace quiet and slow moments"
     ]
   },
   {
@@ -181,14 +126,9 @@ const QUESTIONS = [
       "Munch munch... snoreee",
       "Yay! Boing!",
       "Awoo! Rawr!",
-      "Giggle... Chirp!",
-      "Tada! Ding!",
-      "Yawnnnn... Zzz...",
       "Nom nom... Squeak!",
       "Tweet! Ta-da!",
-      "Scritch-scratch... patter-patter",
-      "Sparkle... whoosh!",
-      "Pant-pant... woof!"
+      "Yawnnnn... Zzz..."
     ]
   }
 ];
@@ -206,42 +146,22 @@ const CHARACTERS = [
     tag: "The Mischievous Little Brother", color: "#E8A87C",
     icon: `<svg viewBox="0 0 36 36"><path d="M6 22 L12 10 L18 16 L24 10 L30 22 Q18 30 6 22Z" fill="#E8A87C" opacity=".5"/><circle cx="12" cy="17" r="1.5" fill="#fff" opacity=".7"/><circle cx="24" cy="17" r="1.5" fill="#fff" opacity=".7"/></svg>`,
     desc: "Small but fierce! Curious, mischievous, always plotting adventures. You dream of being mighty." },
-  { key: "D", name: "Sunflower", img: "pics/sunflower.gif", emoji: "🌻",
-    tag: "The Ray of Sunshine",   color: "#F0D060",
-    icon: `<svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="5" fill="#F0D060"/><line x1="18" y1="6" x2="18" y2="10" stroke="#F0D060" stroke-width="2.5" stroke-linecap="round"/><line x1="18" y1="26" x2="18" y2="30" stroke="#F0D060" stroke-width="2.5" stroke-linecap="round"/><line x1="6" y1="18" x2="10" y2="18" stroke="#F0D060" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="18" x2="30" y2="18" stroke="#F0D060" stroke-width="2.5" stroke-linecap="round"/><line x1="9" y1="9" x2="12" y2="12" stroke="#F0D060" stroke-width="2" stroke-linecap="round"/><line x1="24" y1="24" x2="27" y2="27" stroke="#F0D060" stroke-width="2" stroke-linecap="round"/><line x1="9" y1="27" x2="12" y2="24" stroke="#F0D060" stroke-width="2" stroke-linecap="round"/><line x1="24" y1="12" x2="27" y2="9" stroke="#F0D060" stroke-width="2" stroke-linecap="round"/></svg>`,
-    desc: "Cheerful, bright, always smiling! You spread warmth and positivity wherever you go." },
-  { key: "E", name: "Biscuit",   img: "pics/biscuit.gif",   emoji: "🍪",
-    tag: "The Sweet Helper",      color: "#C9A06E",
-    icon: `<svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="11" fill="#C9A06E" opacity=".5"/><circle cx="14" cy="14" r="2.5" fill="#fff" opacity=".4"/><circle cx="22" cy="16" r="2" fill="#fff" opacity=".3"/><circle cx="16" cy="22" r="1.8" fill="#fff" opacity=".35"/><circle cx="21" cy="21" r="1.5" fill="#fff" opacity=".25"/></svg>`,
-    desc: "Soft, sweet, always ready to lend a paw! You love making sure everyone feels cared for." },
-  { key: "F", name: "Sloth",     img: "pics/sloth.gif",     emoji: "🦥",
-    tag: "The Chillest of Them All", color: "#8FBC8F",
-    icon: `<svg viewBox="0 0 36 36"><circle cx="18" cy="20" r="10" fill="#8FBC8F" opacity=".5"/><circle cx="11" cy="17" r="3" fill="#8FBC8F" opacity=".5"/><circle cx="25" cy="17" r="3" fill="#8FBC8F" opacity=".5"/><path d="M13 23 Q18 26 23 23" stroke="#8FBC8F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".6"/></svg>`,
-    desc: "Slow, calm, completely unbothered! You take life at your own peaceful pace." },
-  { key: "G", name: "Cheek",     img: "pics/cheek.gif",     emoji: "🐹",
+  { key: "D", name: "Cheek",     img: "pics/cheek.gif",     emoji: "🐹",
     tag: "The Food Hoarder",      color: "#E8B88A",
     icon: `<svg viewBox="0 0 36 36"><circle cx="18" cy="20" r="10" fill="#E8B88A" opacity=".5"/><circle cx="10" cy="17" r="3" fill="#E8B88A" opacity=".6"/><circle cx="26" cy="17" r="3" fill="#E8B88A" opacity=".6"/><circle cx="13" cy="24" r="4" fill="#E8B88A" opacity=".35"/><circle cx="23" cy="24" r="4" fill="#E8B88A" opacity=".35"/></svg>`,
     desc: "You love food, cooking, and keeping your cheeks full! Your kitchen skills are legendary." },
-  { key: "H", name: "Bo",        img: "pics/bo.gif",        emoji: "🐦",
+  { key: "E", name: "Bo",        img: "pics/bo.gif",        emoji: "🐦",
     tag: "The Confident Dreamer", color: "#7EB8DA",
     icon: `<svg viewBox="0 0 36 36"><path d="M8 22 Q18 6 28 22 Q18 28 8 22Z" fill="#7EB8DA" opacity=".5"/><circle cx="16" cy="17" r="1.5" fill="#fff" opacity=".6"/><path d="M20 24 L24 27" stroke="#7EB8DA" stroke-width="2" stroke-linecap="round" opacity=".6"/></svg>`,
     desc: "Small but with BIG dreams! You carry yourself with elegance and confidence." },
-  { key: "I", name: "Tommy",     img: "pics/tommy.gif",     emoji: "🦡",
-    tag: "The Curious Explorer",  color: "#B08CB8",
-    icon: `<svg viewBox="0 0 36 36"><ellipse cx="18" cy="20" rx="9" ry="6" fill="#B08CB8" opacity=".5"/><circle cx="12" cy="14" r="3.5" fill="#B08CB8" opacity=".6"/><circle cx="24" cy="14" r="3.5" fill="#B08CB8" opacity=".6"/><circle cx="12" cy="14" r="1.5" fill="#fff" opacity=".5"/><circle cx="24" cy="14" r="1.5" fill="#fff" opacity=".5"/></svg>`,
-    desc: "Playful, sneaky, endlessly curious! Your adventurous spirit makes every day exciting." },
-  { key: "J", name: "Pusheenicorn", img: "pics/pusheenicorn.gif", emoji: "🦄",
-    tag: "The Magical Dreamer",   color: "#D8A0D8",
-    icon: `<svg viewBox="0 0 36 36"><path d="M18 6 L19 14 L26 14 L21 18 L23 26 L18 21 L13 26 L15 18 L10 14 L17 14 Z" fill="#D8A0D8" opacity=".7"/></svg>`,
-    desc: "Magical, whimsical, full of wonder! You believe in rainbows, stardust, and dreams." },
-  { key: "K", name: "Pup",       img: "pics/pupsheen.gif",  emoji: "🐶",
-    tag: "The Loyal Playmate",    color: "#D4A06E",
-    icon: `<svg viewBox="0 0 36 36"><circle cx="18" cy="20" r="9" fill="#D4A06E" opacity=".5"/><circle cx="10" cy="15" r="4" fill="#D4A06E" opacity=".4"/><circle cx="26" cy="15" r="4" fill="#D4A06E" opacity=".4"/><circle cx="10" cy="15" r="1.5" fill="#fff" opacity=".5"/><circle cx="26" cy="15" r="1.5" fill="#fff" opacity=".5"/><ellipse cx="18" cy="26" rx="3" ry="1.5" fill="#D4A06E" opacity=".4"/></svg>`,
-    desc: "Playful, loyal, full of joy! You love your friends with everything you've got." }
+  { key: "F", name: "Sloth",     img: "pics/sloth.gif",     emoji: "🦥",
+    tag: "The Chillest of Them All", color: "#8FBC8F",
+    icon: `<svg viewBox="0 0 36 36"><circle cx="18" cy="20" r="10" fill="#8FBC8F" opacity=".5"/><circle cx="11" cy="17" r="3" fill="#8FBC8F" opacity=".5"/><circle cx="25" cy="17" r="3" fill="#8FBC8F" opacity=".5"/><path d="M13 23 Q18 26 23 23" stroke="#8FBC8F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".6"/></svg>`,
+    desc: "Slow, calm, completely unbothered! You take life at your own peaceful pace." }
 ];
 
-const LABELS = ["A","B","C","D","E","F","G","H","I","J","K"];
-const SCORE_INIT = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, I:0, J:0, K:0 };
+const LABELS = ["A","B","C","D","E","F"];
+const SCORE_INIT = { A:0, B:0, C:0, D:0, E:0, F:0 };
 
 let screen = "intro";
 let currentQuestion = 0;
@@ -368,6 +288,117 @@ function spawnConfetti() {
   setTimeout(() => container.remove(), 6000);
 }
 
+// ===== SILHOUETTE ROWS =====
+const CHAR_IMAGES = [
+  { key: "A", img: "pics/pusheen.png" },
+  { key: "B", img: "pics/stormy.gif" },
+  { key: "C", img: "pics/pip.gif" },
+  { key: "D", img: "pics/cheek.gif" },
+  { key: "E", img: "pics/bo.gif" },
+  { key: "F", img: "pics/sloth.gif" }
+];
+
+const CHARACTER_FACTS = {
+  A: { emoji: "🐱", name: "Pusheen", fact: "Pusheen was born on February 18, 2010, and her favorite activities are eating, sleeping, and being adorable!" },
+  B: { emoji: "🐑", name: "Stormy", fact: "Stormy is Pusheen's fluffy little sister who dreams of being just as cool and cozy as Pusheen one day!" },
+  C: { emoji: "🐺", name: "Pip", fact: "Pip is the mischievous little brother who practices his wolf howl every night, even though it still comes out as a tiny squeak!" },
+  D: { emoji: "🐹", name: "Cheek", fact: "Cheek loves cooking so much that their kitchen is always stocked — and their actual cheeks are always stuffed with snacks!" },
+  E: { emoji: "🐦", name: "Bo", fact: "Bo dreams of being a majestic big blue bird one day and practices power poses every morning in the mirror!" },
+  F: { emoji: "🦥", name: "Sloth", fact: "Sloth moves so slowly that it takes an entire afternoon just to decide which couch cushion to nap on!" }
+};
+
+let glowTimer = null;
+let currentGlowItem = null;
+let silhouetteItems = [];
+
+function initSilhouettes() {
+  const container = document.getElementById("silhouettes");
+  if (!container) return;
+
+  for (let i = 0; i < 12; i++) {
+    const isRight = i % 2 === 0;
+
+    const row = document.createElement("div");
+    row.className = "silhouette-row";
+    row.style.top = (i * 8.33) + "%";
+
+    const track = document.createElement("div");
+    track.className = `row__track ${isRight ? "row__track--right" : "row__track--left"}`;
+
+    for (let copy = 0; copy < 4; copy++) {
+      CHAR_IMAGES.forEach(ch => {
+        const item = document.createElement("div");
+        item.className = "silhouette-item";
+        item.dataset.char = ch.key;
+
+        const img = document.createElement("img");
+        img.className = "silhouette-img";
+        img.src = ch.img;
+        img.alt = ch.key;
+        img.draggable = false;
+
+        item.appendChild(img);
+        item.addEventListener("click", () => handleSilhouetteClick(ch.key));
+        track.appendChild(item);
+        silhouetteItems.push(item);
+      });
+    }
+
+    row.appendChild(track);
+    container.appendChild(row);
+  }
+
+  startGlowTimer();
+}
+
+function startGlowTimer() {
+  setTimeout(() => {
+    const first = silhouetteItems[Math.floor(Math.random() * silhouetteItems.length)];
+    currentGlowItem = first;
+    first.classList.add("silhouette--glowing");
+  }, 2000);
+
+  glowTimer = setInterval(() => {
+    if (currentGlowItem) {
+      currentGlowItem.classList.remove("silhouette--glowing");
+    }
+    let next;
+    do {
+      next = silhouetteItems[Math.floor(Math.random() * silhouetteItems.length)];
+    } while (next === currentGlowItem && silhouetteItems.length > 1);
+    currentGlowItem = next;
+    next.classList.add("silhouette--glowing");
+  }, 90000);
+}
+
+function handleSilhouetteClick(key) {
+  const data = CHARACTER_FACTS[key];
+  if (!data) return;
+
+  const imgSrc = CHAR_IMAGES.find(c => c.key === key).img;
+  document.getElementById("popupCharImg").innerHTML = `<img src="${imgSrc}" alt="${data.name}" class="popup-gif">`;
+  document.getElementById("popupName").textContent = data.name;
+  document.getElementById("popupFact").textContent = data.fact;
+  document.getElementById("popupOverlay").style.display = "flex";
+
+  if (currentGlowItem) {
+    currentGlowItem.classList.remove("silhouette--glowing");
+    currentGlowItem = null;
+  }
+}
+
+function closePopup() {
+  document.getElementById("popupOverlay").style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initSilhouettes();
+  document.getElementById("popupClose").addEventListener("click", closePopup);
+  document.getElementById("popupOverlay").addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) closePopup();
+  });
+});
+
 // ===== RENDER =====
 function svgToUri(svg) {
   return "data:image/svg+xml," + encodeURIComponent(
@@ -384,10 +415,6 @@ function render() {
 function renderIntro() {
   app.innerHTML = `
     <div class="card">
-      <div class="corner-bow corner-bow-tl">🎀</div>
-      <div class="corner-bow corner-bow-tr">🎀</div>
-      <div class="corner-bow corner-bow-bl">🎀</div>
-      <div class="corner-bow corner-bow-br">🎀</div>
       <div class="intro-icon">
         <img src="pics/pusheen.png" alt="Pusheen Icon" class="intro-svg" />
       </div>
@@ -417,10 +444,6 @@ function renderQuiz() {
 
   app.innerHTML = `
     <div class="card">
-      <div class="corner-bow corner-bow-tl">🎀</div>
-      <div class="corner-bow corner-bow-tr">🎀</div>
-      <div class="corner-bow corner-bow-bl">🎀</div>
-      <div class="corner-bow corner-bow-br">🎀</div>
       <div class="quiz-header">
         <div class="progress-wrap">
           <span class="progress-label">${currentQuestion+1}/${QUESTIONS.length}</span>
@@ -453,10 +476,6 @@ function renderResults() {
 
   app.innerHTML = `
     <div class="card" style="background:linear-gradient(160deg, ${ch.color}18, #fdf8f3);">
-      <div class="corner-bow corner-bow-tl">🎀</div>
-      <div class="corner-bow corner-bow-tr">🎀</div>
-      <div class="corner-bow corner-bow-bl">🎀</div>
-      <div class="corner-bow corner-bow-br">🎀</div>
       <div class="result-char">${imgHtml}</div>
       <p class="result-label">You are...</p>
       <h2 class="result-name">${ch.name}</h2>
