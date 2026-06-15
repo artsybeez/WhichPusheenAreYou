@@ -163,6 +163,30 @@ const CHARACTERS = [
 const LABELS = ["A","B","C","D","E","F"];
 const SCORE_INIT = { A:0, B:0, C:0, D:0, E:0, F:0 };
 
+// ===== RESULT HISTORY (cookie-backed) =====
+const RESULTS_COOKIE = "pusheenResults";
+const RESULTS_COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+
+function getResultCounts() {
+  const prefix = RESULTS_COOKIE + "=";
+  const entry = document.cookie.split("; ").find(row => row.startsWith(prefix));
+  if (!entry) return { ...SCORE_INIT };
+  try {
+    const parsed = JSON.parse(decodeURIComponent(entry.slice(prefix.length)));
+    return { ...SCORE_INIT, ...parsed };
+  } catch {
+    return { ...SCORE_INIT };
+  }
+}
+
+function recordResult(key) {
+  const counts = getResultCounts();
+  counts[key] = (counts[key] || 0) + 1;
+  const value = encodeURIComponent(JSON.stringify(counts));
+  document.cookie = `${RESULTS_COOKIE}=${value}; path=/; max-age=${RESULTS_COOKIE_MAX_AGE}; SameSite=Lax`;
+  return counts;
+}
+
 let screen = "intro";
 let currentQuestion = 0;
 let scores = { ...SCORE_INIT };
@@ -172,8 +196,6 @@ const app = document.getElementById("app");
 
 // ===== AUDIO =====
 let audioCtx = null;
-let bgmPlaying = false;
-let bgmNodes = [];
 
 function initAudio() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -245,21 +267,44 @@ async function playFanfare() {
 
 
 let bgmAudio = null;
+let bgmMuted = false; // user preference, toggled by the mute button
 
 // ---- BGM ----
-function playBgm() {
+function initBgm() {
   if (bgmAudio) return;
   bgmAudio = new Audio("audio/music.mp3");
   bgmAudio.loop = true;
   bgmAudio.volume = 1.0;
+}
+
+// Begin playback the moment the page opens. Browsers only permit autoplay
+// when muted, so we start muted right away and unmute on first interaction.
+function startBgm() {
+  initBgm();
+  bgmAudio.muted = true;
   bgmAudio.play().catch(() => {});
 }
 
-function stopBgm() {
-  if (bgmAudio) {
+// Called on the first user interaction — this is the earliest point a
+// browser will allow audible sound.
+function unmuteBgm() {
+  if (bgmMuted || !bgmAudio) return;
+  bgmAudio.muted = false;
+  bgmAudio.play().catch(() => {});
+}
+
+function toggleMute() {
+  bgmMuted = !bgmMuted;
+  if (!bgmAudio) initBgm();
+  const btn = document.getElementById("muteBtn");
+  if (bgmMuted) {
+    bgmAudio.muted = true;
     bgmAudio.pause();
-    bgmAudio.currentTime = 0;
-    bgmAudio = null;
+    if (btn) { btn.textContent = "🔇"; btn.classList.add("muted"); }
+  } else {
+    bgmAudio.muted = false;
+    bgmAudio.play().catch(() => {});
+    if (btn) { btn.textContent = "🔊"; btn.classList.remove("muted"); }
   }
 }
 
@@ -311,21 +356,38 @@ let glowTimer = null;
 let currentGlowItem = null;
 let silhouetteItems = [];
 
+const ROW_HEIGHT = 92;   // px; fits a 64px char rotated 45deg (~90px box)
+const SET_WIDTH = 540;   // px; one set of 6 chars = 6 * (64 + 26 gap)
+
 function initSilhouettes() {
   const container = document.getElementById("silhouettes");
   if (!container) return;
 
-  for (let i = 0; i < 12; i++) {
+  // Reset any previous build (e.g. on resize).
+  if (glowTimer) { clearInterval(glowTimer); glowTimer = null; }
+  currentGlowItem = null;
+  silhouetteItems = [];
+  container.innerHTML = "";
+
+  // The container is rotated 45deg, so it must be a square large enough
+  // to cover the viewport's diagonal in every direction.
+  const side = Math.ceil((window.innerWidth + window.innerHeight) / Math.SQRT2) + 120;
+  container.style.width = side + "px";
+  container.style.height = side + "px";
+
+  const rowCount = Math.ceil(side / ROW_HEIGHT) + 1;
+  const setCount = Math.ceil(side / SET_WIDTH) + 1; // +1 spare set to scroll into
+
+  for (let i = 0; i < rowCount; i++) {
     const isRight = i % 2 === 0;
 
     const row = document.createElement("div");
     row.className = "silhouette-row";
-    row.style.top = (i * 8.33) + "%";
 
     const track = document.createElement("div");
     track.className = `row__track ${isRight ? "row__track--right" : "row__track--left"}`;
 
-    for (let copy = 0; copy < 4; copy++) {
+    for (let copy = 0; copy < setCount; copy++) {
       CHAR_IMAGES.forEach(ch => {
         const item = document.createElement("div");
         item.className = "silhouette-item";
@@ -350,6 +412,13 @@ function initSilhouettes() {
 
   startGlowTimer();
 }
+
+// Rebuild the silhouette field when the window size changes.
+let silhouetteResizeTimer = null;
+window.addEventListener("resize", () => {
+  clearTimeout(silhouetteResizeTimer);
+  silhouetteResizeTimer = setTimeout(initSilhouettes, 300);
+});
 
 function startGlowTimer() {
   setTimeout(() => {
@@ -397,6 +466,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("popupOverlay").addEventListener("click", (e) => {
     if (e.target === e.currentTarget) closePopup();
   });
+
+  // Start the music (muted) the instant the page opens.
+  startBgm();
+
+  // Browsers cannot emit sound until the user interacts at least once, so
+  // unmute on the very first interaction of any kind.
+  const interactionEvents = ["pointerdown", "mousedown", "keydown", "touchstart", "click", "wheel", "scroll"];
+  const unlock = () => {
+    unmuteBgm();
+    interactionEvents.forEach(ev => document.removeEventListener(ev, unlock));
+  };
+  interactionEvents.forEach(ev =>
+    document.addEventListener(ev, unlock, { passive: true })
+  );
+
+  document.getElementById("muteBtn").addEventListener("click", toggleMute);
 });
 
 // ===== RENDER =====
@@ -474,6 +559,22 @@ function renderResults() {
     ? `<img src="${ch.img}" alt="${ch.name}" class="result-char-img" />`
     : `<div class="result-char-fallback">${ch.emoji}</div>`;
 
+  const counts = getResultCounts();
+  const total = Object.values(counts).reduce((sum, n) => sum + n, 0) || 1;
+  const chartRows = CHARACTERS.map(c => {
+    const n = counts[c.key] || 0;
+    const pct = Math.round((n / total) * 100);
+    const isYou = c.key === resultKey;
+    return `
+      <div class="chart-row${isYou ? " chart-row--you" : ""}">
+        <span class="chart-name">${c.emoji} ${c.name}</span>
+        <div class="chart-track">
+          <div class="chart-bar" data-pct="${pct}" style="width:0; background:${c.color};"></div>
+        </div>
+        <span class="chart-pct">${pct}%</span>
+      </div>`;
+  }).join("");
+
   app.innerHTML = `
     <div class="card" style="background:linear-gradient(160deg, ${ch.color}18, #fdf8f3);">
       <div class="result-char">${imgHtml}</div>
@@ -482,6 +583,10 @@ function renderResults() {
       <p class="result-tag">— ${ch.tag} —</p>
       <div class="result-scroll">
         <p class="result-desc">${ch.desc}</p>
+        <div class="chart">
+          <p class="chart-title">✦ How everyone scored ✦</p>
+          ${chartRows}
+        </div>
       </div>
       <button class="play-again-button" id="playAgainBtn">Play Again</button>
     </div>
@@ -489,6 +594,14 @@ function renderResults() {
 
   playFanfare();
   spawnConfetti();
+
+  // Grow the chart bars from 0 to their target width on next frame.
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".chart-bar").forEach(bar => {
+      bar.style.width = bar.dataset.pct + "%";
+    });
+  });
+
   document.getElementById("playAgainBtn").addEventListener("click", resetQuiz);
 }
 
@@ -513,6 +626,7 @@ function handleAnswer(key) {
       const max = Math.max(...Object.values(scores));
       const top = Object.keys(scores).filter(k => scores[k] === max);
       resultKey = top[Math.floor(Math.random() * top.length)];
+      recordResult(resultKey);
       screen = "results";
       render();
     }, 450);
@@ -523,7 +637,6 @@ function startQuiz() {
   screen = "quiz";
   currentQuestion = 0;
   scores = { ...SCORE_INIT };
-  playBgm();
   render();
 }
 
@@ -532,7 +645,6 @@ function resetQuiz() {
   currentQuestion = 0;
   scores = { ...SCORE_INIT };
   resultKey = "A";
-  stopBgm();
   render();
 }
 

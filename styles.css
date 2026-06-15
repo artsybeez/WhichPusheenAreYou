@@ -460,6 +460,72 @@ body {
   margin-bottom: 18px;
 }
 
+/* ===== RESULTS CHART ===== */
+.chart {
+  margin: 4px auto 18px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.chart-title {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #d48a9e;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 88px 1fr 38px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.chart-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #7a5a7a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.chart-track {
+  height: 14px;
+  background: rgba(255, 107, 157, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.chart-bar {
+  height: 100%;
+  border-radius: 10px;
+  width: 0;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chart-pct {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7a5a7a;
+  text-align: right;
+}
+
+.chart-row--you .chart-name,
+.chart-row--you .chart-pct {
+  color: #4a2d4a;
+  font-weight: 800;
+}
+
+.chart-row--you .chart-track {
+  box-shadow: 0 0 0 2px rgba(255, 107, 157, 0.35);
+}
+
 .play-again-button {
   background: linear-gradient(135deg, #4a2d4a, #7a5a7a);
   color: #fff;
@@ -558,17 +624,23 @@ body {
 /* ===== SILHOUETTE ROWS ===== */
 .silhouettes-container {
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  /* width & height are set in JS to cover the rotated viewport */
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .silhouette-row {
-  position: absolute;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 72px;
+  height: 92px;
+  flex-shrink: 0;
 }
 
 .row__track {
@@ -589,13 +661,14 @@ body {
   animation: scrollRight 22s linear infinite;
 }
 
+/* one "set" of 6 characters = 6 x (64px item + 26px gap) = 540px */
 @keyframes scrollLeft {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-25%); }
+  100% { transform: translateX(-540px); }
 }
 
 @keyframes scrollRight {
-  0%   { transform: translateX(-25%); }
+  0%   { transform: translateX(-540px); }
   100% { transform: translateX(0); }
 }
 
@@ -604,14 +677,15 @@ body {
   height: 64px;
   flex-shrink: 0;
   pointer-events: none;
+  transform: rotate(45deg);
 }
 
 .silhouette-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.25;
-  filter: brightness(0) sepia(1) hue-rotate(290deg) saturate(2);
+  opacity: 0.1;
+  filter: brightness(0) sepia(1) hue-rotate(290deg) saturate(1.4);
 }
 
 .silhouette-item.silhouette--glowing {
@@ -622,8 +696,50 @@ body {
 
 .silhouette-item.silhouette--glowing .silhouette-img {
   animation: none;
-  filter: none;
-  opacity: 1;
+  opacity: 0.92;
+  /* Keep it a silhouette, but recolor it to a bright yellow so the
+     clickable character clearly stands out from the faint pink ones. */
+  filter: brightness(0) invert(0.72) sepia(1) saturate(2.6) hue-rotate(2deg)
+          drop-shadow(0 0 6px rgba(255, 217, 61, 0.85));
+}
+
+/* ===== MUTE BUTTON ===== */
+.mute-button {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 107, 157, 0.25);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 300;
+  box-shadow: 0 4px 18px rgba(255, 107, 157, 0.25);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mute-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(255, 107, 157, 0.35);
+}
+
+.mute-button:active { transform: scale(0.94); }
+
+.mute-button.muted {
+  opacity: 0.7;
+  border-color: rgba(122, 90, 122, 0.25);
+}
+
+@media (max-width: 640px) {
+  .mute-button { width: 46px; height: 46px; font-size: 19px; bottom: 14px; right: 14px; }
 }
 
 /* ===== POPUP ===== */
