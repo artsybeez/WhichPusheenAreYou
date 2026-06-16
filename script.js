@@ -277,16 +277,22 @@ function initBgm() {
   bgmAudio.volume = 1.0;
 }
 
-// Begin playback the moment the page opens. Browsers only permit autoplay
-// when muted, so we start muted right away and unmute on first interaction.
+// Begin playback the moment the page opens. We first try to play audibly
+// right away; if the browser blocks audible autoplay, we fall back to muted
+// playback and unmute on the first user interaction.
 function startBgm() {
   initBgm();
-  bgmAudio.muted = true;
-  bgmAudio.play().catch(() => {});
+  bgmAudio.muted = false;
+  bgmAudio.play().catch(() => {
+    // Audible autoplay was blocked — start muted so playback is "primed",
+    // then unmute as soon as the user interacts.
+    bgmAudio.muted = true;
+    bgmAudio.play().catch(() => {});
+  });
 }
 
-// Called on the first user interaction — this is the earliest point a
-// browser will allow audible sound.
+// Fallback for browsers that blocked audible autoplay: unmute on the first
+// user interaction (the earliest point a browser guarantees audible sound).
 function unmuteBgm() {
   if (bgmMuted || !bgmAudio) return;
   bgmAudio.muted = false;
@@ -467,11 +473,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === e.currentTarget) closePopup();
   });
 
-  // Start the music (muted) the instant the page opens.
+  // Prime the music (muted) right away so it's ready to play instantly.
   startBgm();
 
-  // Browsers cannot emit sound until the user interacts at least once, so
-  // unmute on the very first interaction of any kind.
+  // The welcome button's click is a real user gesture — the earliest moment a
+  // browser will allow audible sound — so we start the music audibly here.
+  const welcomeOverlay = document.getElementById("welcomeOverlay");
+  document.getElementById("welcomeBtn").addEventListener("click", () => {
+    unmuteBgm();
+    welcomeOverlay.classList.add("welcome--hidden");
+  });
+
+  // Safety net: if the user interacts some other way first, unmute then too.
   const interactionEvents = ["pointerdown", "mousedown", "keydown", "touchstart", "click", "wheel", "scroll"];
   const unlock = () => {
     unmuteBgm();
@@ -561,22 +574,23 @@ function renderResults() {
 
   const counts = getResultCounts();
   const total = Object.values(counts).reduce((sum, n) => sum + n, 0) || 1;
-  const chartRows = CHARACTERS.map(c => {
+  const chartCols = CHARACTERS.map(c => {
     const n = counts[c.key] || 0;
     const pct = Math.round((n / total) * 100);
     const isYou = c.key === resultKey;
     return `
-      <div class="chart-row${isYou ? " chart-row--you" : ""}">
-        <span class="chart-name">${c.emoji} ${c.name}</span>
-        <div class="chart-track">
-          <div class="chart-bar" data-pct="${pct}" style="width:0; background:${c.color};"></div>
-        </div>
+      <div class="chart-col${isYou ? " chart-col--you" : ""}">
         <span class="chart-pct">${pct}%</span>
+        <div class="chart-track">
+          <div class="chart-bar" data-pct="${pct}" style="height:0; background:${c.color};"></div>
+        </div>
+        <img class="chart-gif" src="${c.img}" alt="${c.name}" />
+        <span class="chart-name">${c.name}</span>
       </div>`;
   }).join("");
 
   app.innerHTML = `
-    <div class="card" style="background:linear-gradient(160deg, ${ch.color}18, #fdf8f3);">
+    <div class="card">
       <div class="result-char">${imgHtml}</div>
       <p class="result-label">You are...</p>
       <h2 class="result-name">${ch.name}</h2>
@@ -585,7 +599,7 @@ function renderResults() {
         <p class="result-desc">${ch.desc}</p>
         <div class="chart">
           <p class="chart-title">✦ How everyone scored ✦</p>
-          ${chartRows}
+          <div class="chart-cols">${chartCols}</div>
         </div>
       </div>
       <button class="play-again-button" id="playAgainBtn">Play Again</button>
@@ -598,7 +612,7 @@ function renderResults() {
   // Grow the chart bars from 0 to their target width on next frame.
   requestAnimationFrame(() => {
     document.querySelectorAll(".chart-bar").forEach(bar => {
-      bar.style.width = bar.dataset.pct + "%";
+      bar.style.height = bar.dataset.pct + "%";
     });
   });
 
