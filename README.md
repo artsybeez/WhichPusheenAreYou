@@ -11,11 +11,4 @@ Pusheen character matches your vibe!
 - Adds up your answers and reveals your matching character (shhhh it's a mystery)
 - Results are saved locally with cookies.
 
-## How to run it
-
-It's just plain HTML, CSS, and JavaScript — no installs needed.
-
-1. Open `quiz.html` in your web browser.
-2. That's it! Click "Let's go!" and start the quiz.
-
 Made with 💕 by Bleta
