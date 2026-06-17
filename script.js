@@ -187,6 +187,208 @@ function recordResult(key) {
   return counts;
 }
 
+// ===== SKIN SHOP (Stripe-powered) =====
+// Mirrors api/_catalog.js. Prices shown here are display-only — the server
+// (api/_catalog.js) is the source of truth for what the buyer is charged.
+const SKINS = [
+  { id: "pusheen-galaxy", charKey: "A", character: "Pusheen", name: "Galaxy Pusheen", img: "skins/pusheen-galaxy.png", price: "$1.99" },
+  { id: "stormy-hacker",  charKey: "B", character: "Stormy",  name: "Hacker Stormy",  img: "skins/stormy-hacker.png",  price: "$1.99" },
+  { id: "pip-nature",     charKey: "C", character: "Pip",     name: "Nature Pip",     img: "skins/pip-nature.png",     price: "$1.99" },
+  { id: "cheek-pirate",   charKey: "D", character: "Cheek",   name: "Pirate Cheek",   img: "skins/cheek-pirate.png",   price: "$1.99" },
+  { id: "bo-arctic",      charKey: "E", character: "Bo",      name: "Arctic Bo",      img: "skins/bo-arctic.png",      price: "$1.99" },
+  { id: "sloth-lava",     charKey: "F", character: "Sloth",   name: "Lava Sloth",     img: "skins/sloth-lava.png",     price: "$1.99" }
+];
+
+const OWNED_KEY = "pusheenOwnedSkins";
+const EQUIPPED_KEY = "pusheenEquippedSkins";
+
+const DEFAULT_CHAR_IMG = {
+  A: "pics/pusheen.png", B: "pics/stormy.gif", C: "pics/pip.gif",
+  D: "pics/cheek.gif",   E: "pics/bo.gif",     F: "pics/sloth.gif"
+};
+
+function skinById(id) { return SKINS.find(s => s.id === id) || null; }
+
+function getOwnedSkins() {
+  try { return JSON.parse(localStorage.getItem(OWNED_KEY)) || []; }
+  catch { return []; }
+}
+function isOwned(id) { return getOwnedSkins().includes(id); }
+function addOwnedSkin(id) {
+  const owned = getOwnedSkins();
+  if (!owned.includes(id)) {
+    owned.push(id);
+    localStorage.setItem(OWNED_KEY, JSON.stringify(owned));
+  }
+}
+
+function getEquipped() {
+  try { return JSON.parse(localStorage.getItem(EQUIPPED_KEY)) || {}; }
+  catch { return {}; }
+}
+function getEquippedSkinId(charKey) { return getEquipped()[charKey] || null; }
+function setEquipped(charKey, skinId) {
+  const eq = getEquipped();
+  if (skinId) eq[charKey] = skinId; else delete eq[charKey];
+  localStorage.setItem(EQUIPPED_KEY, JSON.stringify(eq));
+}
+
+// The image to display for a character — an equipped skin overrides the default.
+function resolveCharImg(charKey) {
+  const equippedId = getEquippedSkinId(charKey);
+  if (equippedId) {
+    const s = skinById(equippedId);
+    if (s) return s.img;
+  }
+  return DEFAULT_CHAR_IMG[charKey];
+}
+
+// ---- Toast ----
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  if (!t) return;
+  t.textContent = msg;
+  t.style.display = "block";
+  // Force reflow so the transition runs even on rapid repeat calls.
+  void t.offsetWidth;
+  t.classList.add("toast--show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    t.classList.remove("toast--show");
+    setTimeout(() => { t.style.display = "none"; }, 300);
+  }, 3500);
+}
+
+// ---- Shop UI ----
+function openShop() { renderShop(); document.getElementById("shopOverlay").style.display = "flex"; }
+function closeShop() { document.getElementById("shopOverlay").style.display = "none"; }
+
+function renderShop() {
+  const grid = document.getElementById("shopGrid");
+  if (!grid) return;
+
+  grid.innerHTML = SKINS.map(s => {
+    const owned = isOwned(s.id);
+    const equipped = getEquippedSkinId(s.charKey) === s.id;
+    let btn;
+    if (!owned) {
+      btn = `<button class="shop-btn shop-btn--buy" data-buy="${s.id}">Buy ${s.price}</button>`;
+    } else if (equipped) {
+      btn = `<button class="shop-btn shop-btn--equipped" data-unequip="${s.charKey}">✓ Equipped</button>`;
+    } else {
+      btn = `<button class="shop-btn shop-btn--equip" data-equip="${s.id}">Equip</button>`;
+    }
+    return `
+      <div class="shop-card${equipped ? " shop-card--equipped" : ""}">
+        ${owned ? '<span class="shop-owned-tag">Owned</span>' : ""}
+        <div class="shop-card-img"><img src="${s.img}" alt="${s.name}" /></div>
+        <p class="shop-card-name">${s.name}</p>
+        <p class="shop-card-char">for ${s.character}</p>
+        ${btn}
+      </div>`;
+  }).join("");
+
+  grid.querySelectorAll("[data-buy]").forEach(b =>
+    b.addEventListener("click", () => buySkin(b.dataset.buy, b)));
+  grid.querySelectorAll("[data-equip]").forEach(b =>
+    b.addEventListener("click", () => {
+      const s = skinById(b.dataset.equip);
+      if (!s) return;
+      setEquipped(s.charKey, s.id);
+      applyEquippedSkins();
+      renderShop();
+      showToast(`Equipped ${s.name}! ✨`);
+    }));
+  grid.querySelectorAll("[data-unequip]").forEach(b =>
+    b.addEventListener("click", () => {
+      setEquipped(b.dataset.unequip, null);
+      applyEquippedSkins();
+      renderShop();
+    }));
+}
+
+// Re-paint character images everywhere after an equip change.
+function applyEquippedSkins() {
+  initSilhouettes();
+  if (screen === "results") {
+    const resImg = document.querySelector(".result-char-img");
+    if (resImg) resImg.src = resolveCharImg(resultKey);
+    document.querySelectorAll(".chart-gif").forEach((g, i) => {
+      if (CHARACTERS[i]) g.src = resolveCharImg(CHARACTERS[i].key);
+    });
+  } else {
+    render();
+  }
+}
+
+async function buySkin(skinId, btn) {
+  if (btn) { btn.disabled = true; btn.textContent = "Loading…"; }
+  try {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skinId })
+    });
+    const data = await res.json();
+    if (!res.ok || !data.url) throw new Error(data.error || "Checkout failed");
+    window.location.href = data.url; // redirect to Stripe Checkout
+  } catch (err) {
+    console.error(err);
+    showToast("Couldn't start checkout. Is the server running? (run `vercel dev`)");
+    renderShop();
+  }
+}
+
+// After returning from Stripe Checkout, verify the payment and unlock the skin.
+async function handleCheckoutReturn() {
+  const params = new URLSearchParams(window.location.search);
+  const returning = params.get("skin_success") || params.get("skin_cancel");
+
+  // Coming back from Stripe is a fresh page load, so the welcome overlay is
+  // showing again. Dismiss it (and unmute the music) so the shop/toast are
+  // visible underneath.
+  if (returning) {
+    const welcome = document.getElementById("welcomeOverlay");
+    if (welcome) welcome.classList.add("welcome--hidden");
+    unmuteBgm();
+  }
+
+  if (params.get("skin_cancel")) {
+    showToast("Purchase canceled — no worries! 🐱");
+    cleanCheckoutUrl();
+    return;
+  }
+
+  const sessionId = params.get("skin_success");
+  if (!sessionId) return;
+
+  showToast("Confirming your purchase… ✨");
+  try {
+    const res = await fetch(`/api/verify-session?session_id=${encodeURIComponent(sessionId)}`);
+    const data = await res.json();
+    if (data.paid && data.skinId) {
+      addOwnedSkin(data.skinId);
+      const s = skinById(data.skinId);
+      if (s) { setEquipped(s.charKey, s.id); applyEquippedSkins(); } // auto-equip
+      showToast(`Unlocked & equipped ${s ? s.name : "your skin"}! 🎉`);
+      spawnConfetti();
+      openShop();
+    } else {
+      showToast("Payment wasn't completed.");
+    }
+  } catch (err) {
+    console.error(err);
+    showToast("Couldn't verify the purchase.");
+  } finally {
+    cleanCheckoutUrl();
+  }
+}
+
+function cleanCheckoutUrl() {
+  window.history.replaceState({}, document.title, window.location.pathname);
+}
+
 let screen = "intro";
 let currentQuestion = 0;
 let scores = { ...SCORE_INIT };
@@ -401,7 +603,7 @@ function initSilhouettes() {
 
         const img = document.createElement("img");
         img.className = "silhouette-img";
-        img.src = ch.img;
+        img.src = resolveCharImg(ch.key);
         img.alt = ch.key;
         img.draggable = false;
 
@@ -450,7 +652,7 @@ function handleSilhouetteClick(key) {
   const data = CHARACTER_FACTS[key];
   if (!data) return;
 
-  const imgSrc = CHAR_IMAGES.find(c => c.key === key).img;
+  const imgSrc = resolveCharImg(key);
   document.getElementById("popupCharImg").innerHTML = `<img src="${imgSrc}" alt="${data.name}" class="popup-gif">`;
   document.getElementById("popupName").textContent = data.name;
   document.getElementById("popupFact").textContent = data.fact;
@@ -495,6 +697,16 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   document.getElementById("muteBtn").addEventListener("click", toggleMute);
+
+  // ---- Skin shop wiring ----
+  document.getElementById("shopBtn").addEventListener("click", openShop);
+  document.getElementById("shopClose").addEventListener("click", closeShop);
+  document.getElementById("shopOverlay").addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) closeShop();
+  });
+
+  // If we just came back from Stripe Checkout, finish unlocking the skin.
+  handleCheckoutReturn();
 });
 
 // ===== RENDER =====
@@ -514,7 +726,7 @@ function renderIntro() {
   app.innerHTML = `
     <div class="card">
       <div class="intro-icon">
-        <img src="pics/pusheen.png" alt="Pusheen Icon" class="intro-svg" />
+        <img src="${resolveCharImg("A")}" alt="Pusheen Icon" class="intro-svg" />
       </div>
       <h1 class="title">Which Pusheen<br>Are You?</h1>
       <p class="title-sub">✦ a cute personality quiz ✦</p>
@@ -523,9 +735,11 @@ function renderIntro() {
         which charming character matches your soul.
       </p>
       <button class="start-button" id="startBtn">Begin the quiz</button>
+      <button class="shop-link" id="shopLink">🛍️ Skin Shop</button>
     </div>
   `;
   document.getElementById("startBtn").addEventListener("click", startQuiz);
+  document.getElementById("shopLink").addEventListener("click", openShop);
 }
 
 function renderQuiz() {
@@ -566,10 +780,11 @@ function renderQuiz() {
 
 function renderResults() {
   const ch = CHARACTERS.find(c => c.key === resultKey);
-  const hasImg = ch.img && ch.img.trim() !== "";
+  const resultImg = resolveCharImg(resultKey);
+  const hasImg = resultImg && resultImg.trim() !== "";
 
   const imgHtml = hasImg
-    ? `<img src="${ch.img}" alt="${ch.name}" class="result-char-img" />`
+    ? `<img src="${resultImg}" alt="${ch.name}" class="result-char-img" />`
     : `<div class="result-char-fallback">${ch.emoji}</div>`;
 
   const counts = getResultCounts();
@@ -584,7 +799,7 @@ function renderResults() {
         <div class="chart-track">
           <div class="chart-bar" data-pct="${pct}" style="height:0; background:${c.color};"></div>
         </div>
-        <img class="chart-gif" src="${c.img}" alt="${c.name}" />
+        <img class="chart-gif" src="${resolveCharImg(c.key)}" alt="${c.name}" />
         <span class="chart-name">${c.name}</span>
       </div>`;
   }).join("");
